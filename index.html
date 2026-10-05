@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>هتغرب هنا | شقق وسكن من غير سمسرة</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Reem+Kufi:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#EEF3F6;--card:#fff;--ink:#17324D;--mute:#5B6E80;--accent:#F2A900;--accent-ink:#17324D;--line:#D5DFE7;--chip:#E1EBF1;--err:#B3261E;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1B27;--card:#172736;--ink:#EAF1F6;--mute:#9DB0C0;--line:#2A3F52;--chip:#213547;--err:#FF8A80}}
+:root[data-theme="dark"]{--bg:#0F1B27;--card:#172736;--ink:#EAF1F6;--mute:#9DB0C0;--line:#2A3F52;--chip:#213547;--err:#FF8A80}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Cairo,Tahoma,sans-serif;line-height:1.7}
+[hidden]{display:none!important}
+.wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+.logo{font-family:'Reem Kufi',Cairo,sans-serif;font-size:1.6rem;font-weight:700}
+.logo span{background:var(--accent);color:var(--accent-ink);padding:0 10px;border-radius:8px;margin-inline-start:4px}
+h1,h2{font-family:'Reem Kufi',Cairo,sans-serif}
+select,input,button{font:inherit}
+select,input{padding:9px 11px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink);width:100%}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.btn{display:block;width:100%;text-align:center;background:var(--accent);color:var(--accent-ink);font-weight:700;text-decoration:none;padding:10px;border-radius:10px;border:0;cursor:pointer}
+.btn.ghost{background:var(--chip);color:var(--ink)}
+/* login */
+#login{min-height:100vh;display:grid;place-items:center;padding:20px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;width:100%;max-width:380px}
+.box h1{font-size:1.7rem;margin:10px 0 4px}
+.box p{color:var(--mute);margin:0 0 14px}
+.tabs{display:flex;gap:6px;margin-bottom:14px}
+.tabs button{flex:1;padding:8px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer;font-weight:600}
+.tabs button[aria-selected="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.box label{display:block;font-size:.85rem;color:var(--mute);margin-bottom:10px}
+.msg{color:var(--err);min-height:1.6em;font-size:.9rem;margin:0 0 6px}
+/* app */
+header{padding:16px 0;display:flex;justify-content:space-between;align-items:center;gap:10px}
+header .who{display:flex;align-items:center;gap:10px;color:var(--mute);font-size:.9rem}
+header .who button{background:var(--chip);color:var(--ink);border:0;border-radius:8px;padding:5px 12px;cursor:pointer}
+.pledge{display:inline-block;border:2px dashed var(--accent);padding:4px 14px;border-radius:10px;font-weight:700;margin-bottom:14px}
+.search{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding:8px 0}
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+.filters select,.filters input{flex:1 1 140px;width:auto}
+.count{color:var(--mute);margin:10px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px;padding-bottom:30px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;cursor:pointer;display:flex;flex-direction:column;text-align:start;padding:0;color:inherit;font:inherit}
+.card img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block}
+.ct{padding:12px 14px;display:flex;flex-direction:column;gap:6px}
+.row{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+.row h2{font-size:1.05rem;margin:0}
+.price{font-family:'Reem Kufi',Cairo,sans-serif;font-size:1.35rem;font-weight:700;white-space:nowrap}
+.sub{color:var(--mute);font-size:.88rem}
+.chips{display:flex;flex-wrap:wrap;gap:6px;padding:0;margin:0;list-style:none}
+.chips li{background:var(--chip);border-radius:999px;padding:1px 10px;font-size:.85rem}
+.empty{padding:30px;text-align:center;color:var(--mute);grid-column:1/-1}
+/* detail */
+dialog{border:0;border-radius:16px;padding:0;max-width:640px;width:calc(100% - 24px);max-height:92vh;background:var(--card);color:var(--ink)}
+dialog::backdrop{background:rgba(0,0,0,.55)}
+.gal{position:relative}
+.gal img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block}
+.gal button{position:absolute;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;border:0;background:rgba(255,255,255,.9);color:#17324D;font-size:1.3rem;cursor:pointer}
+.gal .nx{left:10px}.gal .pv{right:10px}
+.gal .n{position:absolute;bottom:8px;left:10px;background:rgba(0,0,0,.6);color:#fff;border-radius:8px;padding:0 10px;font-size:.8rem}
+.dc{padding:16px 18px 20px;display:flex;flex-direction:column;gap:12px}
+.dc h2{margin:0;font-size:1.4rem}
+.close{position:absolute;top:10px;right:10px;z-index:2;width:36px;height:36px;border-radius:50%;border:0;background:rgba(255,255,255,.9);color:#17324D;font-size:1.1rem;cursor:pointer}
+.dc h3{margin:0 0 6px;font-size:1rem}
+.apps{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px;padding:0;margin:0;list-style:none}
+.apps li{background:var(--chip);border-radius:10px;padding:6px 10px}
+.map{display:flex;gap:10px;align-items:center;background:var(--chip);border-radius:12px;padding:10px 12px}
+.map svg{flex:none}
+.map div{flex:1}
+.map a{background:var(--accent);color:var(--accent-ink);font-weight:700;text-decoration:none;padding:7px 12px;border-radius:8px;white-space:nowrap}
+.acts{display:flex;gap:8px}
+#admbtn{position:fixed;bottom:calc(14px + env(safe-area-inset-bottom,0px));left:14px;z-index:20;background:var(--ink);color:var(--bg);border:0;border-radius:999px;padding:9px 16px;font-weight:700;cursor:pointer}
+.al{list-style:none;margin:0;padding:0}.al li{display:flex;gap:8px;align-items:center;padding:7px 0;border-bottom:1px solid var(--line)}.al span{flex:1}
+.al button,.x{background:var(--chip);color:var(--ink);border:0;border-radius:8px;padding:5px 12px;cursor:pointer}
+.fm{display:grid;grid-template-columns:1fr 1fr;gap:10px}.fm .w{grid-column:1/-1}.dc label{font-size:.85rem;color:var(--mute);display:block}
+.th{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}.th div{position:relative}.th img{width:72px;height:54px;object-fit:cover;border-radius:6px;display:block}
+.th b{position:absolute;top:-5px;left:-5px;background:#B3261E;color:#fff;border-radius:50%;width:20px;height:20px;text-align:center;cursor:pointer;font-size:12px;line-height:20px}
+</style>
+</head>
+<body>
+
+<section id="login">
+<div class="box">
+<div class="logo">هتغرب<span>هنا</span></div>
+<h1>أهلاً بيك</h1>
+<p>سجّل دخولك وشوف الشقق وأسعارها من غير سمسرة.</p>
+<div class="tabs" role="tablist">
+<button role="tab" id="t-in" aria-selected="true">تسجيل الدخول</button>
+<button role="tab" id="t-up" aria-selected="false">حساب جديد</button>
+</div>
+<div id="f-name" hidden><label>الاسم<input id="name" autocomplete="name"></label></div>
+<label>رقم الموبايل أو الإيميل<input id="user" autocomplete="username"></label>
+<label>كلمة السر<input id="pass" type="password" autocomplete="current-password"></label>
+<p class="msg" id="msg" role="alert"></p>
+<button class="btn" id="go">دخول</button>
+</div>
+</section>
+
+<div id="app" hidden>
+<div class="wrap">
+<header><div class="logo">هتغرب<span>هنا</span></div>
+<div class="who"><span id="hello"></span><button id="out">خروج</button></div></header>
+<div class="pledge">السعر المكتوب هو سعر المالك. صفر سمسرة.</div>
+
+<div class="search">
+<input id="q" type="search" placeholder="دوّر على شقة: منطقة، تكييف، غسالة، مفروشة..." aria-label="بحث">
+<div class="filters">
+<select id="type" aria-label="نوع السكن"><option value="">كل الأنواع</option><option>شقة كاملة</option><option>سرير في غرفة</option><option>غرفة خاصة</option></select>
+<select id="area" aria-label="المنطقة"><option value="">كل المناطق</option></select>
+<input id="max" type="number" inputmode="numeric" placeholder="أقصى سعر" aria-label="أقصى سعر">
+</div></div>
+<div class="count" id="count" aria-live="polite"></div>
+<section class="grid" id="list"></section>
+</div>
+</div>
+
+<button id="admbtn" hidden>⚙️ لوحة الإدارة</button>
+<dialog id="dlg"></dialog>
+<dialog id="adm"></dialog>
+<script type="application/json" id="data">{"whatsapp": "201000000000", "flats": [{"id": 1, "title": "شقة 3 غرف قريبة من الجامعة", "area": "الجامعة", "type": "شقة كاملة", "price": 4500, "rooms": 3, "baths": 1, "floor": "الثالث", "features": ["مفروشة", "واي فاي", "مصعد"], "appliances": ["تكييف", "غسالة", "ثلاجة", "بوتاجاز", "سخان", "تلفزيون"], "address": "شارع الجامعة، أسيوط", "lat": 27.1809, "lng": 31.1837, "note": "المالك بيسكن في نفس العمارة.", "photos": []}, {"id": 2, "title": "سرير في غرفة مشتركة للطلاب", "area": "الجامعة", "type": "سرير في غرفة", "price": 900, "rooms": 1, "baths": 1, "floor": "الأول", "features": ["واي فاي", "مطبخ مشترك"], "appliances": ["مروحة", "ثلاجة", "سخان"], "address": "بجوار كلية الهندسة، أسيوط", "lat": 27.182, "lng": 31.17, "note": "للشباب فقط، 3 أفراد في الغرفة.", "photos": []}, {"id": 3, "title": "غرفة خاصة بحمام", "area": "الوليدية", "type": "غرفة خاصة", "price": 1600, "rooms": 1, "baths": 1, "floor": "الثاني", "features": ["مفروشة", "واي فاي"], "appliances": ["تكييف", "ثلاجة صغيرة", "سخان"], "address": "الوليدية، أسيوط", "lat": 27.195, "lng": 31.175, "note": "الكهرباء بالعداد.", "photos": []}, {"id": 4, "title": "شقة غرفتين مفروشة", "area": "الوليدية", "type": "شقة كاملة", "price": 3200, "rooms": 2, "baths": 1, "floor": "الرابع", "features": ["مفروشة", "بلكونة", "مصعد"], "appliances": ["تكييف", "غسالة", "ثلاجة", "بوتاجاز", "سخان"], "address": "الوليدية، أسيوط", "lat": 27.193, "lng": 31.179, "note": "عقد سنة، والدفع كل 3 شهور.", "photos": []}, {"id": 5, "title": "شقة غرفتين غير مفروشة", "area": "الجمهورية", "type": "شقة كاملة", "price": 2400, "rooms": 2, "baths": 1, "floor": "الأرضي", "features": ["غاز طبيعي", "قريبة من المواصلات"], "appliances": ["سخان"], "address": "شارع الجمهورية، أسيوط", "lat": 27.183, "lng": 31.186, "note": "تصلح لزوجين أو طالبين.", "photos": []}, {"id": 6, "title": "سرير في غرفة ثنائية", "area": "الجمهورية", "type": "سرير في غرفة", "price": 1200, "rooms": 1, "baths": 1, "floor": "الثالث", "features": ["واي فاي"], "appliances": ["تكييف", "غسالة", "ثلاجة"], "address": "شارع الجمهورية، أسيوط", "lat": 27.184, "lng": 31.188, "note": "2 فقط في الغرفة.", "photos": []}]}</script>
+
+<script>
+const DATA=JSON.parse(document.getElementById("data").textContent);
+let FLATS=DATA.flats,WHATSAPP=DATA.whatsapp;
+const $=id=>document.getElementById(id);
+const fmt=n=>n.toLocaleString("ar-EG");
+const ICON={"تكييف":"❄️","غسالة":"🧺","ثلاجة":"🧊","ثلاجة صغيرة":"🧊","بوتاجاز":"🔥","سخان":"🚿","تلفزيون":"📺","مروحة":"🌀"};
+const hex=s=>"#"+((s*2654435761)>>>0).toString(16).slice(0,6).padStart(6,"0");
+function ph(f,i){const L=["الصالة","غرفة النوم","المطبخ","الحمام"][i%4];const c=["#3B6E8F","#8F6B3B","#4F8F6B","#6B4F8F"][(f.id+i)%4];
+return "data:image/svg+xml;utf8,"+encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 400'><rect width='640' height='400' fill='${c}'/><text x='320' y='200' fill='#fff' font-size='34' text-anchor='middle' font-family='Cairo,Tahoma,sans-serif'>${L}</text><text x='320' y='245' fill='#fff' fill-opacity='.75' font-size='20' text-anchor='middle' font-family='Cairo,Tahoma,sans-serif'>صورة مؤقتة</text></svg>`)}
+const pics=f=>f.photos.length?f.photos:[0,1,2,3].map(i=>ph(f,i));
+
+/* login (تجربة محلية: الحسابات بتتخزن في متصفح الزائر فقط) */
+let mode="in";
+function store(k,v){try{if(v===undefined)return JSON.parse(localStorage.getItem(k));localStorage.setItem(k,JSON.stringify(v))}catch(e){return v===undefined?null:undefined}}
+function setMode(m){mode=m;$("t-in").setAttribute("aria-selected",m==="in");$("t-up").setAttribute("aria-selected",m==="up");$("f-name").hidden=m==="in";$("go").textContent=m==="in"?"دخول":"إنشاء الحساب";$("msg").textContent=""}
+$("t-in").onclick=()=>setMode("in");$("t-up").onclick=()=>setMode("up");
+$("go").onclick=()=>{
+ const u=$("user").value.trim(),p=$("pass").value,n=$("name").value.trim(),msg=$("msg");
+ if(!u||!p){msg.textContent="اكتب رقم الموبايل أو الإيميل وكلمة السر.";return}
+ if(p.length<6){msg.textContent="كلمة السر لازم تكون 6 حروف أو أرقام على الأقل.";return}
+ const users=store("hh_users")||{};
+ if(mode==="up"){
+  if(!n){msg.textContent="اكتب اسمك.";return}
+  if(users[u]){msg.textContent="الحساب ده موجود. جرّب تسجيل الدخول.";return}
+  users[u]={name:n,pass:p};store("hh_users",users)
+ }else if(!users[u]||users[u].pass!==p){msg.textContent="البيانات غلط، أو الحساب مش موجود على الجهاز ده.";return}
+ store("hh_session",{user:u,name:users[u].name});enter(users[u].name)
+};
+$("pass").addEventListener("keydown",e=>{if(e.key==="Enter")$("go").click()});
+$("out").onclick=()=>{store("hh_session",null);$("app").hidden=true;$("login").hidden=false;$("pass").value=""};
+function enter(name){$("login").hidden=true;$("app").hidden=false;$("hello").textContent="أهلاً "+name;render()}
+
+/* listing */
+function fillAreas(){const v=$("area").value;$("area").innerHTML='<option value="">كل المناطق</option>';[...new Set(FLATS.map(f=>f.area))].forEach(a=>{const o=document.createElement("option");o.textContent=a;$("area").appendChild(o)});$("area").value=v}
+fillAreas();
+function render(){
+ const q=$("q").value.trim(),t=$("type").value,a=$("area").value,m=+$("max").value||Infinity;
+ const r=FLATS.filter(f=>(!t||f.type===t)&&(!a||f.area===a)&&f.price<=m&&(!q||[f.title,f.area,f.type,f.address,f.note,...f.features,...f.appliances].join(" ").includes(q)));
+ $("count").textContent=`${fmt(r.length)} من ${fmt(FLATS.length)} شقة`;
+ $("list").innerHTML=r.length?r.map(f=>`<button class="card" data-id="${f.id}"><img src="${pics(f)[0]}" alt="">
+ <div class="ct"><div class="row"><h2>${f.title}</h2><div class="price">${fmt(f.price)} ج</div></div>
+ <div class="sub">${f.area} • ${f.type} • ${fmt(f.rooms)} غرفة • دور ${f.floor}</div>
+ <ul class="chips">${f.features.map(x=>`<li>${x}</li>`).join("")}</ul></div></button>`).join("")
+ :`<div class="empty">مفيش شقق بالمواصفات دي. جرّب كلمة تانية أو سعر أعلى.</div>`}
+["q","type","area","max"].forEach(i=>$(i).addEventListener("input",render));
+$("list").addEventListener("click",e=>{const c=e.target.closest(".card");if(c)show(+c.dataset.id)});
+
+/* detail */
+function show(id){
+ const f=FLATS.find(x=>x.id===id),P=pics(f);let i=0;
+ const msg=encodeURIComponent(`السلام عليكم، عايز أسأل عن: ${f.title} (${f.price} جنيه)`);
+ const map=`https://www.google.com/maps?q=${f.lat},${f.lng}`;
+ $("dlg").innerHTML=`<div class="gal"><button class="close" aria-label="إغلاق">✕</button><img id="gi" src="${P[0]}" alt="صورة الشقة">
+ <button class="nx" aria-label="السابقة">‹</button><button class="pv" aria-label="التالية">›</button><span class="n" id="gn"></span></div>
+ <div class="dc"><div class="row"><h2>${f.title}</h2><div class="price">${fmt(f.price)} ج<span class="sub"> / شهر</span></div></div>
+ <div class="sub">${f.area} • ${f.type} • ${fmt(f.rooms)} غرفة • ${fmt(f.baths)} حمام • دور ${f.floor}</div>
+ <div><h3>المميزات</h3><ul class="chips">${f.features.map(x=>`<li>${x}</li>`).join("")}</ul></div>
+ <div><h3>الأجهزة الموجودة</h3>${f.appliances.length?`<ul class="apps">${f.appliances.map(x=>`<li>${ICON[x]||"✔️"} ${x}</li>`).join("")}</ul>`:`<p class="sub">مفيش أجهزة.</p>`}</div>
+ <div class="sub">${f.note}</div>
+ ${f.lat?`<div class="map"><svg width="34" height="34" viewBox="0 0 24 24" fill="#F2A900"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><div><b>الموقع</b><div class="sub">${f.address}</div></div><a href="${map}" target="_blank" rel="noopener">افتح الخريطة</a></div>`:""}
+ <div class="acts"><a class="btn" href="https://wa.me/${WHATSAPP}?text=${msg}" target="_blank" rel="noopener">كلم المالك على واتساب</a></div></div>`;
+ const upd=()=>{$("gi").src=P[i];$("gn").textContent=`${fmt(i+1)} / ${fmt(P.length)}`};upd();
+ const d=$("dlg");
+ d.querySelector(".nx").onclick=()=>{i=(i+1)%P.length;upd()};
+ d.querySelector(".pv").onclick=()=>{i=(i-1+P.length)%P.length;upd()};
+ d.querySelector(".close").onclick=()=>d.close();
+ d.onclick=e=>{if(e.target===d)d.close()};
+ d.showModal()}
+
+
+/* ===== لوحة الإدارة (للمالك فقط) ===== */
+const esc=t=>String(t??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+let ART=null,ED=null;
+(async()=>{try{if(!window.claude)return;const u=await claude.use("user");if(u&&u.canEdit()){ART=await claude.use("artifact");if(ART)$("admbtn").hidden=false}}catch(e){}})();
+function buildDoc(){
+ const c=document.documentElement.cloneNode(true);
+ c.querySelector("#data").textContent=JSON.stringify({whatsapp:WHATSAPP,flats:FLATS}).replace(/</g,"\\u003c");
+ ["list","count","hello","dlg","adm","msg"].forEach(i=>c.querySelector("#"+i).innerHTML="");
+ c.querySelector("#area").innerHTML='<option value="">كل المناطق</option>';
+ c.querySelector("#login").removeAttribute("hidden");c.querySelector("#app").setAttribute("hidden","");
+ c.querySelector("#admbtn").setAttribute("hidden","");c.querySelector("#f-name").setAttribute("hidden","");
+ c.querySelector("#t-in").setAttribute("aria-selected","true");c.querySelector("#t-up").setAttribute("aria-selected","false");
+ c.querySelector("#go").textContent="دخول";
+ return "<!DOCTYPE html>\n"+c.outerHTML}
+async function commit(msgEl){
+ msgEl.textContent="جاري الحفظ...";
+ try{await ART.publish(buildDoc())}catch(e){msgEl.textContent=e&&e.code==="conflict"?"حد عدّل الصفحة قبلك، افتحها تاني وجرّب.":"مقدرتش أحفظ ("+((e&&(e.code||e.message))||"خطأ")+")."}}
+function parseLL(s){const m=s.match(/@(-?\d+\.\d+),(-?\d+\.\d+)/)||s.match(/!3d(-?\d+\.\d+)!4d(-?\d+\.\d+)/)||s.match(/[?&](?:q|ll)=(-?\d+\.\d+),(-?\d+\.\d+)/)||s.match(/^\s*(-?\d+\.\d+)\s*,\s*(-?\d+\.\d+)\s*$/);return m?[+m[1],+m[2]]:null}
+function shrink(file){return new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=()=>{const k=Math.min(1,900/im.width),c=document.createElement("canvas");c.width=Math.round(im.width*k);c.height=Math.round(im.height*k);c.getContext("2d").drawImage(im,0,0,c.width,c.height);res(c.toDataURL("image/jpeg",.7))};im.onerror=rej;im.src=r.result};r.onerror=rej;r.readAsDataURL(file)})}
+$("admbtn").onclick=()=>{$("adm").showModal();list()};
+function list(){
+ const d=$("adm");
+ d.innerHTML=`<div class="dc"><div class="row"><h2>لوحة الإدارة</h2><button class="x" id="ax">✕</button></div>
+ <label>رقم واتساب (بصيغة دولية من غير +)<input id="a-wa" value="${esc(WHATSAPP)}"></label>
+ <button class="btn" id="a-new">+ شقة جديدة</button>
+ <ul class="al">${FLATS.map(f=>`<li><span>${esc(f.title)} (${fmt(f.price)})</span><button data-e="${f.id}">تعديل</button><button data-d="${f.id}">حذف</button></li>`).join("")||'<li>مفيش شقق لسه.</li>'}</ul>
+ <button class="btn ghost" id="a-wsave">حفظ رقم الواتساب</button><p class="msg" id="am"></p></div>`;
+ $("ax").onclick=()=>d.close();
+ $("a-new").onclick=()=>form({id:Math.max(0,...FLATS.map(f=>f.id))+1,title:"",area:"",type:"شقة كاملة",price:"",rooms:1,baths:1,floor:"",features:[],appliances:[],address:"",lat:"",lng:"",note:"",photos:[]},true);
+ $("a-wsave").onclick=()=>{const v=$("a-wa").value.replace(/\D/g,"");if(!v){$("am").textContent="اكتب الرقم.";return}WHATSAPP=v;commit($("am"))};
+ d.querySelectorAll("[data-e]").forEach(b=>b.onclick=()=>form(JSON.parse(JSON.stringify(FLATS.find(f=>f.id==b.dataset.e))),false));
+ d.querySelectorAll("[data-d]").forEach(b=>b.onclick=()=>{if(b.dataset.s){FLATS=FLATS.filter(f=>f.id!=b.dataset.d);commit($("am"))}else{b.dataset.s=1;b.textContent="تأكيد الحذف"}})}
+function form(f,isNew){
+ ED=f;const d=$("adm");
+ d.innerHTML=`<div class="dc"><div class="row"><h2>${isNew?"شقة جديدة":"تعديل الشقة"}</h2><button class="x" id="ax">رجوع</button></div>
+ <div class="fm">
+ <label class="w">العنوان<input id="e-title" value="${esc(f.title)}"></label>
+ <label>المنطقة<input id="e-area" value="${esc(f.area)}"></label>
+ <label>النوع<select id="e-type">${["شقة كاملة","سرير في غرفة","غرفة خاصة"].map(t=>`<option${t===f.type?" selected":""}>${t}</option>`).join("")}</select></label>
+ <label>السعر في الشهر<input id="e-price" type="number" value="${esc(f.price)}"></label>
+ <label>الدور<input id="e-floor" value="${esc(f.floor)}"></label>
+ <label>عدد الغرف<input id="e-rooms" type="number" value="${esc(f.rooms)}"></label>
+ <label>عدد الحمامات<input id="e-baths" type="number" value="${esc(f.baths)}"></label>
+ <label class="w">المميزات (افصل بينها بفاصلة)<input id="e-features" value="${esc(f.features.join("، "))}"></label>
+ <label class="w">الأجهزة (افصل بينها بفاصلة)<input id="e-apps" value="${esc(f.appliances.join("، "))}"></label>
+ <label class="w">العنوان بالتفصيل<input id="e-addr" value="${esc(f.address)}"></label>
+ <label class="w">الموقع: إحداثيات (27.18,31.18) أو لينك خرائط جوجل الطويل<input id="e-ll" value="${f.lat?esc(f.lat+","+f.lng):""}"></label>
+ <label class="w">ملاحظة<input id="e-note" value="${esc(f.note)}"></label>
+ <div class="w"><label>الصور<input id="e-files" type="file" accept="image/*" multiple></label><div class="th" id="e-th"></div></div>
+ </div><p class="msg" id="am"></p><button class="btn" id="e-save">حفظ ونشر</button></div>`;
+ const th=()=>{$("e-th").innerHTML=ED.photos.map((p,i)=>`<div><img src="${p}" alt=""><b data-r="${i}">✕</b></div>`).join("");$("e-th").querySelectorAll("[data-r]").forEach(b=>b.onclick=()=>{ED.photos.splice(+b.dataset.r,1);th()})};th();
+ $("ax").onclick=list;
+ $("e-files").onchange=async e=>{$("am").textContent="بصغّر الصور...";try{for(const x of e.target.files)ED.photos.push(await shrink(x));$("am").textContent="";th()}catch(_){$("am").textContent="في صورة معرفتش أقراها."}};
+ $("e-save").onclick=()=>{
+  const g=i=>$(i).value.trim(),L=s=>s.split(/[,،]/).map(x=>x.trim()).filter(Boolean),am=$("am");
+  if(!g("e-title")||!g("e-area")||!(+g("e-price")>0)){am.textContent="اكتب العنوان والمنطقة والسعر.";return}
+  let lat=ED.lat,lng=ED.lng;const ll=g("e-ll");
+  if(ll){const p=parseLL(ll);if(!p){am.textContent="معرفتش أقرا الموقع. حط إحداثيات زي 27.18,31.18 (اللينك المختصر مش بيشتغل).";return}[lat,lng]=p}else{lat=0;lng=0}
+  Object.assign(ED,{title:g("e-title"),area:g("e-area"),type:$("e-type").value,price:+g("e-price"),floor:g("e-floor"),rooms:+g("e-rooms")||1,baths:+g("e-baths")||1,features:L(g("e-features")),appliances:L(g("e-apps")),address:g("e-addr"),lat,lng,note:g("e-note")});
+  const i=FLATS.findIndex(x=>x.id===ED.id);if(i<0)FLATS.push(ED);else FLATS[i]=ED;commit(am)}}
+
+const s=store("hh_session");if(s&&s.name)enter(s.name);
+</script>
+</body>
+</html>
